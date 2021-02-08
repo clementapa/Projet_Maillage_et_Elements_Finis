@@ -11,7 +11,10 @@ class Triplets:
         self.data[0].append(val)
         self.data[1][0].append(I)
         self.data[1][1].append(J)
-
+    def get(self, I, J):
+        A = coo_matrix(self.data)
+        A = A.toarray()
+        return A[I][J]
 
 t = Triplets()           
 print(t) # ([], ([], []))
@@ -19,6 +22,8 @@ t.append(0, 1 ,2.)
 print(t) # ([2.], ([0], [1]))
 t.append(3, 4 ,5.2) 
 print(t) # ([2., 5.2], ([0, 3], [1, 4]))
+
+print(t.get(3,4))
 
 # Format COO
 A = coo_matrix(t.data)    
@@ -33,6 +38,9 @@ t2.append(2,2,2.3)
 t2.append(3,0,0.5)
 t2.append(3,1,2)
 t2.append(3,3,2)
+
+print('ici')
+print(t2.get(3,3))
 
 A = coo_matrix(t2.data)    
 print(A)
