@@ -71,6 +71,28 @@ def test_rigi(msh,dim,physical_tag):
 		gama_area += i.area()
     assert(np.matmul((np.matmul(np.transpose(U),M),U)) == gama_area )
 
+def Dirichlet(msh, physical_tag, g, triplets, B):
+    """ @triplet représente un triplet de la matrice A possiblement à modifier
+        @B est le vecteur B qu'il faut modifier
+    """
+    Indexes_to_nullify = []
+    # pour maillage 3D 
+    # for t in msh.triangles:
+    #     if(t.tag == physical_tag):
+    #         for p in t:
+    #             Indexes_to_nullify.append(p.id)
 
-def Integrale(msh:Mesh, dim:int, physical_tag:int, f, B:np.array, order=2):
-    return
+    for s in msh.segments:
+        if(s.tag == physical_tag):
+            for p in t:
+                Indexes_to_nullify.append(p.id)
+    print(Indexes_to_nullify)
+    for i in Indexes_to_nullify:
+        for T in triplet :
+            if(T[1][0][i] == i):
+                T[0][i] = 0
+            T.append(i,i,1)
+        B[i] = g
+    return triplets
+
+

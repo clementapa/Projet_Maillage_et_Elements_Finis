@@ -1,6 +1,6 @@
-
 from itertools import count
 from math import sqrt
+from Quadrature import phiRef
 import gmsh
 
 class Point:
@@ -32,6 +32,22 @@ class Segment:
     
     def jac(self):
         return self.area()
+    
+    def gaussPoint(self,p=2):
+        """
+        retourne, dans le format de votre choix, les poids, 
+        les coordonnées paramétriques et les coordonnées physiques 
+        des points de Gauss de l’élement considéré et pour une précision order
+        
+        """
+        order = {   1 : [1/3,1/3,1/3],
+                    2 : [1/6,1/6,1/6]}
+        param = order[p]
+        w = param[0]
+        
+        phiRef(self,i,param[1:])
+        
+        return
 
 class Triangle:
     _ids = count(0)
@@ -51,6 +67,9 @@ class Triangle:
     
     def jac(self):
         return 2*self.area()
+    
+    def gaussPoint(self,order=2):
+        return
 
 class Mesh :
     def __init__(self):
