@@ -2,13 +2,13 @@ import Triplets
 import numpy as np
 
 def mass_elem(element, alpha =1.):
-	M_e = np.zeros(3,3)
-	coeff = element.area()/12
-	for i in range(3):
+    M_e = np.zeros(3,3)
+    coeff = element.area()/12
+    for i in range(3):
 	    M_e[i,i] = 2*coeff
 	    for j in range(3):
-		    if(i!=j):
-			    M_e[i,j] = coeff
+	        if(i!=j):
+                M_e[i,j] = coeff
     return M_e
 
 def rigi_elem(element, alpha =1.):

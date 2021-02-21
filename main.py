@@ -2,6 +2,41 @@ import gmsh
 import sys
 from Mesh import *
 import Matrice
+import triplets
+
+t = Triplets()           
+print(t) # ([], ([], []))
+t.append(0, 1 ,2.)  
+print(t) # ([2.], ([0], [1]))
+t.append(3, 4 ,5.2) 
+print(t) # ([2., 5.2], ([0, 3], [1, 4]))
+
+print(t.get(3,4))
+
+# Format COO
+A = coo_matrix(t.data)    
+print(A)
+print(A.toarray())
+
+t2 = Triplets()
+t2.append(0,0,1.1)
+t2.append(0,3,2)
+t2.append(1,1,1)
+t2.append(2,2,2.3)
+t2.append(3,0,0.5)
+t2.append(3,1,2)
+t2.append(3,3,2)
+
+print('ici')
+print(t2.get(3,3))
+
+A = coo_matrix(t2.data)    
+print(A)
+print(A.toarray())
+
+# Format CSR
+A = coo_matrix(t2.data).tocsr()
+print(A)
 
 gmsh.initialize(sys.argv)
 
