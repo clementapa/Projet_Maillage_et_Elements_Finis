@@ -22,10 +22,7 @@ def rigi_elem(element, alpha =1.):
 
 def Algo_assemblage(msh, physical_tag, Rigi = True, Masse = True):
     t = Triplets()
-    cpt = 0
     for p in (msh.triangles):
-        cpt +=1
-        # print(cpt)
         if p.tag == physical_tag : 
             if (Rigi and Masse):
                 Mp = mass_elem(p)

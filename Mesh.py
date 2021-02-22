@@ -133,10 +133,18 @@ class Mesh :
                         # print(elements[2])
                         # print(int(elements[2][0][i*dim+k]-1))
                         # print(self.points[int(elements[2][0][i*dim+k]-1)])
-                        list_pts.append(self.points[int(elements[2][0][i*dim+k]-1)])
+                        # print(int(elements[2][0][i*(dim+1)+k]))
+                        list_pts.append(self.points[int(elements[2][0][i*(dim+1)+k])-1])
                     if(dim == 2):
+                        # print('la')
+                        # print(list_pts[0])
+                        # print(list_pts[1])
+                        # print(list_pts[2])
                         self.triangles.append(Triangle(list_pts,physical_tag))
                     else : 
+                        # print('laa')
+                        # print(list_pts[0])
+                        # print(list_pts[1])
                         self.segments.append(Segment(list_pts,physical_tag))
             # print("Next")
         return 
