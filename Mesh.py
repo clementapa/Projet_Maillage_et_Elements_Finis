@@ -73,7 +73,6 @@ class Triangle:
 
 class Mesh :
     def __init__(self):
-        pass
         self.points = []
         self.segments = []
         self.triangles = []
@@ -112,7 +111,6 @@ class Mesh :
     def GmshToMesh(self, filename):
         gmsh.merge(filename)
         all_nodes =  gmsh.model.mesh.getNodes()
-        # print(all_nodes)
         self.Npts = len(all_nodes[0])
         # print(self.Npts)
         # print(len(all_nodes[1]))
@@ -131,7 +129,7 @@ class Mesh :
                 # print(elements)
                 for i in range(len(elements[1][0])):
                     list_pts = []
-                    for k in range(dim):
+                    for k in range(dim+1):
                         # print(elements[2])
                         # print(int(elements[2][0][i*dim+k]-1))
                         # print(self.points[int(elements[2][0][i*dim+k]-1)])

@@ -2,7 +2,7 @@ import gmsh
 import sys
 from Mesh import *
 import Matrice
-import triplets
+from triplets import *
 
 t = Triplets()           
 print(t) # ([], ([], []))
@@ -10,6 +10,8 @@ t.append(0, 1 ,2.)
 print(t) # ([2.], ([0], [1]))
 t.append(3, 4 ,5.2) 
 print(t) # ([2., 5.2], ([0, 3], [1, 4]))
+
+print(t.data[0])
 
 print(t.get(3,4))
 

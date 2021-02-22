@@ -49,7 +49,7 @@ gmsh.model.geo.synchronize()
 # Mesh (2D)
 # model.mesh.generate(2)
 # Write on disk
-gmsh.write("MyL.msh")
+gmsh.write("appartement.msh")
 # Launch the GUI (not mandatory at all)
 gmsh.fltk.run();
 # Finalize GMSH
