@@ -1,4 +1,9 @@
-h = 1;                    
+h = 1; // finesse du maillage                   
+L = 20; // Longueur appartement
+l = 20; // Largeur appartement
+d = 0.5; // Épaisseur des murs 
+Lf = 1; // Longueur d’une fenêtre
+Lr = 1; // Longueur d’une fenêtre
 
 Point(1) = {0, 0, 0, h};  
 Point(2) = {10, 0, 0, h};  
@@ -18,12 +23,14 @@ Point(15) = {17, 5.5, 0, h};
 Point(16) = {20, 5.5, 0, h};
 Point(17) = {20, 8, 0, h};
 Point(18) = {20, 12, 0, h};
+
 Point(19) = {20, 15, 0, h};
 Point(20) = {18, 15, 0, h};
 Point(21) = {15, 15, 0, h};
 Point(22) = {10, 15, 0, h};
 Point(23) = {10, 15.5, 0, h};
 Point(24) = {20, 15.5, 0, h};
+
 Point(25) = {20, 20, 0, h};
 Point(26) = {18, 20, 0, h};
 Point(27) = {15, 20, 0, h};

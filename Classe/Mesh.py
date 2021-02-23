@@ -1,6 +1,6 @@
 from itertools import count
 from math import sqrt
-from Quadrature import phiRef
+from .Quadrature import phiRef
 import gmsh
 
 class Point:

@@ -1,8 +1,8 @@
 import gmsh
 import sys
-from  Mesh import *
-from Matrice import *
-from triplets import *
+from  Classe.Mesh import *
+from Classe.Matrice import *
+from Classe.triplets import *
 from scipy.sparse.linalg import spsolve
 import matplotlib.pyplot as plt
 
@@ -18,9 +18,8 @@ print("Maillage en cours ...")
 
 msh = Mesh()
 
-msh.GmshToMesh("appartement.msh")
+msh.GmshToMesh("immobilier/appartement.msh")
 
-print("Algo assemblage en cours ...")
 t = Algo_assemblage(msh, 1, Masse = False)
 
 b = np.zeros((msh.Npts))

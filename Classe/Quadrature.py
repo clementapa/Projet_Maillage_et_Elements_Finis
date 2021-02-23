@@ -3,7 +3,6 @@
 @date : 12/03/21
 """
 import numpy as np
-import Mesh 
 
 def phiRef(element, i:int, param:[float]):
     # to do includen https://bthierry.pages.math.cnrs.fr/course/fem/condition_fourier/ : 
@@ -12,6 +11,6 @@ def phiRef(element, i:int, param:[float]):
             2 : param[1]}
     return case[i]
     
-def Integrale(msh:Mesh, dim:int, physical_tag:int, f, B:np.array, order=2):
+# def Integrale(msh:Mesh, dim:int, physical_tag:int, f, B:np.array, order=2):
     
-    return
+#     return
