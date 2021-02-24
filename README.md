@@ -6,3 +6,30 @@
 - [ ] Calculs à faire en 3D 
 
 lancer sh python_librairies_pip.bat
+
+## Structure 
+```
+├── Classe            
+│   ├── Matrice.py              # Fonctions pour assemblage des matrices 
+│   ├── Mesh.py                 # Classe Mesh, Triangle, Segment et Point 
+│   ├── Quadrature.py           # Méthode de quadrature
+│   ├── triplets.py             # Classe Triplets necessaire pour le format CSR
+├── immobilier           
+│   ├── appart.geo              # 
+│   ├── appartement.py          # Static Gesture
+│   ├── appartement.geo
+│   ├── appartement.msh         # classe Triplets necessaire pour le format CSR
+├── indications.txt             # indication du professeur
+├── master-paper-rev6.5.pdf     # research article based on the project
+├── projet.pdf                  # subject of the project 
+└── README.md
+```
+
+$$ \left \{
+   \begin{array}{r c l}
+      AB  & = & 192 \\
+      C   & = & 5\,896 \\
+      DEF & = & 0,5
+   \end{array}
+   \right .
+$$
