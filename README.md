@@ -25,11 +25,4 @@ lancer sh python_librairies_pip.bat
 └── README.md
 ```
 
-$$ \left \{
-   \begin{array}{r c l}
-      AB  & = & 192 \\
-      C   & = & 5\,896 \\
-      DEF & = & 0,5
-   \end{array}
-   \right .
-$$
+![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
