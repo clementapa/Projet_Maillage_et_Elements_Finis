@@ -13,7 +13,7 @@ model = gmsh.model
 model.add("appartement")
 
 # Paramètres
-h = 0.5; # finesse du maillage                   
+h = 0.3; # finesse du maillage                   
 L = 10; # Longueur appartement
 l = 10; # Largeur appartement
 d = 0.5; # Épaisseur des murs 
@@ -95,7 +95,7 @@ gmsh.model.geo.synchronize()
 model.mesh.generate(2)
 
 # Write on disk
-gmsh.write("./immobilier/appartement.msh")
+gmsh.write("./immobilier/appartement_arthur.msh")
 
 # Launch the GUI (not mandatory at all)
 # gmsh.fltk.run();

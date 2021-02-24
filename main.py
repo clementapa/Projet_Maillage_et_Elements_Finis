@@ -1,8 +1,8 @@
 import gmsh
 import sys
-from Mesh import *
-import Matrice
-from triplets import *
+from Classe.Mesh import *
+from Classe.Matrice import *
+from Classe.triplets import *
 
 t = Triplets()           
 print(t) # ([], ([], []))

@@ -1,6 +1,6 @@
-h = 0.3; // finesse du maillage                   
-L = 20; // Longueur appartement
-l = 20; // Largeur appartement
+h = 1; // finesse du maillage                   
+L = 10; // Longueur appartement
+l = 10; // Largeur appartement
 d = 0.5; // Épaisseur des murs 
 Lf = 2; // Longueur d’une fenêtre
 Lr = 2; // Longueur d’une fenêtre

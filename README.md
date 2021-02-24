@@ -24,7 +24,3 @@ lancer sh python_librairies_pip.bat
 ├── projet.pdf                  # subject of the project 
 └── README.md
 ```
-
-![\Large \left \{begin{array}{r c l}AB  & = & 192 \\C   & = & 5\,896 \\DEF & = & 0,5 \end{array}  \right](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 
-
-![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}) 

@@ -112,41 +112,23 @@ class Mesh :
         gmsh.merge(filename)
         all_nodes =  gmsh.model.mesh.getNodes()
         self.Npts = len(all_nodes[0])
-        # print(self.Npts)
-        # print(len(all_nodes[1]))
 
         for i in range(self.Npts):
             self.points.append(Point(all_nodes[1][i*3],all_nodes[1][i*3+1],all_nodes[1][i*3+2]))
         
-        # print("gmsh.model.getPhysicalGroups() : {}".format(gmsh.model.getPhysicalGroups()))
         for temp in gmsh.model.getPhysicalGroups():
             dim = temp[0]
             physical_tag = temp[1]
-            # print("gmsh.model.getEntitiesForPhysicalGroup({},{}) : {}".format(dim,physical_tag,gmsh.model.getEntitiesForPhysicalGroup(dim, physical_tag)))
             for entity in gmsh.model.getEntitiesForPhysicalGroup(dim, physical_tag):
-                # print("entity : ",entity," tag : ",physical_tag)
                 elements = gmsh.model.mesh.getElements(dim, entity)
-                # print(elements)
                 for i in range(len(elements[1][0])):
                     list_pts = []
                     for k in range(dim+1):
-                        # print(elements[2])
-                        # print(int(elements[2][0][i*dim+k]-1))
-                        # print(self.points[int(elements[2][0][i*dim+k]-1)])
-                        # print(int(elements[2][0][i*(dim+1)+k]))
                         list_pts.append(self.points[int(elements[2][0][i*(dim+1)+k])-1])
                     if(dim == 2):
-                        # print('la')
-                        # print(list_pts[0])
-                        # print(list_pts[1])
-                        # print(list_pts[2])
                         self.triangles.append(Triangle(list_pts,physical_tag))
                     else : 
-                        # print('laa')
-                        # print(list_pts[0])
-                        # print(list_pts[1])
                         self.segments.append(Segment(list_pts,physical_tag))
-            # print("Next")
         return 
     
 

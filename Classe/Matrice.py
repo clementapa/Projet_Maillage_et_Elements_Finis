@@ -1,8 +1,23 @@
 from .triplets import *
 import numpy as np
 from alive_progress import alive_bar
+import math
 
-def mass_elem(element, alpha =1.):
+def signif(x, digit):
+    """
+    @x : nombre
+    @digit : nombre de chiffes significatifs
+    Pour avoir le même nombre de significatif pour le test de calcul 
+    de la matrice Masse
+    """
+    if x == 0:
+        return 0
+    return round(x, digit - int(math.floor(math.log10(abs(x)))) - 1)
+
+def mass_elem(element):
+    """
+    Calcule la matrice de masse élémentaire de @element 
+    """
     M_e = np.zeros((3,3))
     coeff = element.area()/12
     for i in range(3):
@@ -12,18 +27,24 @@ def mass_elem(element, alpha =1.):
                 M_e[i,j] = coeff
     return M_e
 
-def rigi_elem(element, alpha =1.):
+def rigi_elem(element):
+    """
+    Calcule la matrice de masse de rigidité élémentaire de @element 
+    """
     D_e = np.zeros((3,3))
     coeff = element.area()
     Bp_t_Bp_ = np.matmul(np.transpose(B_p(element)), B_p(element))
     for i in range(3):
         for j in range(3):
-            D_e[i,j] = coeff*np.matmul(np.matmul(np.transpose(gradPhi(element,j)),Bp_t_Bp_),gradPhi(element,i))
+            D_e[i,j] = coeff*np.matmul(np.matmul(np.transpose(gradPhi(j)),Bp_t_Bp_),gradPhi(i))
     return D_e
 
-def Algo_assemblage(msh, physical_tag, Rigi = True, Masse = True):
+def Algo_assemblage(msh, physical_tag, t, Rigi = True, Masse = True):
+    """
+    Calcule la matrice A sous la forme d'un triplet @t du système AU = B en calculant les matrices de masse élémentaire 
+    et de rigidité élémentaire de chaque triangle du maillage et en les assemblant à l'aide de l'algo d'assemblage
+    """
     print("Algo assemblage en cours ...")
-    t = Triplets()
     with alive_bar(len(msh.triangles)) as bar:
         for p in (msh.triangles):
             if p.tag == physical_tag : 
@@ -42,10 +63,12 @@ def Algo_assemblage(msh, physical_tag, Rigi = True, Masse = True):
                         J = Loc2Glob(p, j)
                         t.append(I,J,Mp[i,j]+Dp[i,j])
             bar()
-    print("Fin algo assemblage")
-    return t
+    return 
 
-def gradPhi (element, i) :
+def gradPhi(i) :
+    """
+    Retourne le gradient de la fonction de forme @i dans le triangle de référence 
+    """
     if(i == 0):
         return np.array([-1,-1])
     elif (i == 1):
@@ -53,11 +76,9 @@ def gradPhi (element, i) :
     return np.array([0,1])
     
 def B_p(triangle):
-    if(triangle.jac()==0):
-        print(triangle.p[0])
-        print(triangle.p[1])
-        print(triangle.p[2])
-
+    """
+    Retourne la matrice de passage de @triangle 
+    """
     coeff = 1/triangle.jac()
     B = np.zeros((2,2))
     B[0,0] = coeff*(triangle.p[2].y - triangle.p[0].y)
@@ -68,38 +89,40 @@ def B_p(triangle):
 
 
 def Loc2Glob(triangle,indice_loc):
+    """
+    Retourne l'indice globale du point d'indice @indice_loc dans @triangle
+    """
     return triangle.p[indice_loc].id
 
-# def test_mass(msh,dim,physical_tag):
-# 	mass = Mass(msh,dim,physical_tag).data
-# 	M = coo_matrix(mass).tocsr()    
-# 	U = np.ones(len(M))
-# 	gama_area = 0
-# 	for i in mesh.triangles:
-# 		gama_area += i.area()
-# 	assert(np.matmul((np.matmul(np.transpose(U),M),U)) == gama_area )
+def test_mass(msh,physical_tag):
+    """
+    Permet de s'assurer que la matrice de masse est bien calculé
+    """
+    mass = Algo_assemblage(msh,physical_tag, Rigi=False)
+    M = coo_matrix(mass.data).toarray()    
+    U = np.ones(msh.Npts)
+    gama_area = 0
+    for t in msh.triangles:
+        gama_area += t.area()
+    print(signif(np.matmul(np.matmul(np.transpose(U),M),U),4))
+    print(signif(gama_area,4))
+    assert(signif(np.matmul(np.matmul(np.transpose(U),M),U),4) == signif(gama_area,4))
 
-# def test_rigi(msh,dim,physical_tag):
-# 	mass = Mass(msh,dim,physical_tag).data
-# 	M = coo_matrix(mass).tocsr()    
-# 	U = np.ones(len(M))
-# 	gama_area = 0
-# 	for i in mesh.triangles:
-# 		gama_area += i.area()
-# 	assert(np.matmul((np.matmul(np.transpose(U),M),U)) == gama_area )
+def test_rigi(msh,physical_tag):
+    """
+    Permet de s'assurer que la matrice de rigidité est bien calculé
+    """
+    rigi = Algo_assemblage(msh,physical_tag, Masse=False)
+    D = coo_matrix(rigi.data).toarray()   
+    U = np.ones(msh.Npts)
+    assert(np.matmul(D,U).all() == 0)
 
 def Dirichlet(msh, physical_tag, g, T, B):
-    """ @triplet représente un triplet de la matrice A possiblement à modifier
-        @B est le vecteur B qu'il faut modifier
     """
-
+    Applique la condition de Dirichlet à la matrice B et à la matrice T qui reprèsente A
+    dans le système AU = B
+    """
     Indexes_to_nullify = []
-    # pour maillage 3D 
-    # for t in msh.triangles:
-    #     if(t.tag == physical_tag):
-    #         for p in t:
-    #             Indexes_to_nullify.append(p.id)
-
     with alive_bar(len(msh.segments)) as bar:
         for s in msh.segments:
             if(s.tag == physical_tag):
@@ -117,6 +140,6 @@ def Dirichlet(msh, physical_tag, g, T, B):
             T.append(i,i,1)
             B[i] = g
             bar()
-    return T
+    return 
 
 

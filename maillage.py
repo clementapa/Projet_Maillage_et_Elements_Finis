@@ -7,8 +7,12 @@ from scipy.sparse.linalg import spsolve
 import matplotlib.pyplot as plt
 
 # Paramètres
-Tc = 25
-Tf = -10
+Tc = 25 # temperature radiateur
+Tf = -10 # temperature fenêtre
+
+physical_tag_surface = 1
+physical_tag_radiateurs = 2
+physical_tag_fenetres = 3
 
 # Initialise gmsh
 gmsh.initialize(sys.argv)
@@ -20,23 +24,27 @@ msh = Mesh()
 
 msh.GmshToMesh("immobilier/appartement.msh")
 
-t = Algo_assemblage(msh, 1, Masse = False)
+# test_mass(msh,1)
+# test_rigi(msh,1)
 
-b = np.zeros((msh.Npts))
+t = Triplets()
+Algo_assemblage(msh, physical_tag_surface, t, Masse = False, Rigi = True)
+
+B = np.zeros((msh.Npts))
 
 # Bords radiateurs
 print("Dirichlet 1 en cours ...")
-t = Dirichlet(msh, 2, Tc, t, b)
+Dirichlet(msh, physical_tag_radiateurs, Tc, t, B)
 # Bords fenêtres
 print("Dirichlet 2 en cours ...")
-t = Dirichlet(msh, 3, Tf, t, b)
+Dirichlet(msh, physical_tag_fenetres, Tf, t, B)
 
 gmsh.finalize()
 
 # Résolution
 print("Résolution en cours ...")
 A = coo_matrix(t.data).tocsr()
-U = spsolve(A, b) # solve avec scipy
+U = spsolve(A, B) # solve avec scipy
 
 # Visualisation
 print("Visualisation en cours ...")
@@ -49,14 +57,3 @@ for tri in msh.triangles:
 plt.tricontourf(x, y, connectivity, U, 12)
 plt.colorbar()
 plt.show()
-
-### U de référence
-# print("Phase U de référence en cours ...")
-# Uref = np.zeros((msh.Npts,))
-# for pt in msh.points:
-#   I = int(pt.id)
-#   Uref[I] = g(pt.x, pt.y)
-
-# plt.tricontourf(x, y, connectivity, Uref, 12)
-# plt.colorbar()
-# plt.show()

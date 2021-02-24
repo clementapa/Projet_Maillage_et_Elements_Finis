@@ -5,7 +5,6 @@
 import numpy as np
 
 def phiRef(element, i:int, param:[float]):
-    # to do includen https://bthierry.pages.math.cnrs.fr/course/fem/condition_fourier/ : 
     case = {0 : 1 - param[0]-param[1],
             1 : param[0],
             2 : param[1]}
