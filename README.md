@@ -44,16 +44,13 @@ Les librairies qui vont être installées sont:
 
 ##  Énoncé
 
-<img src= Images/2020-2021-flat.svg width=50%; height=50%; display=block; margin-left= auto; margin-right=auto; >
+<img src= Images/2020-2021-flat.svg width=50%; height=50%;>
 
-<img src= Images/equation1.svg display=flex; flex_direction = row; justify-content=center; align-items=center;>
-
-![](Images/equation1.svg)
-<br/>
+<img src= Images/equation1.svg>
 Une condition de Neumann homogène et deux conditions de Dirichlet hétérogène.
 
 ## a(u,v) = l(v)
-![](Images/equation2.svg)
+<img src= Images/equation2.svg>
 
 Dans le système AU = B, il n'y aura donc pas de matrice de masse à calculer pour A et pas de méthode de quadrature à faire pour le calcul de B.
 
@@ -77,17 +74,24 @@ Pour résoudre le problème il faut lancer le code resolution.py via la commande
 
 ## Détermination de la position du radiateur dans l'appartement d'Arthur
 
-Arthur a très froid en ce moment il ne sait pas où mettre le radiateur dans son appartement. À l'aide de la méthode des élements finis P1 pour résoudre l'équation nous allons determiner où est ce que Arthur mettra son radiateur. 
+Arthur a très froid en ce moment il ne sait pas où mettre le radiateur dans son appartement. À l'aide de la méthode des élements finis P1, nous allons determiner où est ce que Arthur doit mettre son radiateur. 
 Nous avons essayé trois configurations différentes.
 
-### Configuration 1 : à côté de son lit 
-
+### Configuration 1 : à côté de son lit ?
 ![](Figures/config_1.png)
 
-### Configuration 2 : dans la salle de bain
+Cette configuration semble pas mal. Le radiateur diffuse bien la chaleur dans les pièces principales de son appartement (même si il ne possède que deux pièces).
 
+### Configuration 2 : dans la salle de bain ?
 ![](Figures/config_2.png)
 
-### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre
+Les murs de la sale de bain attenuent la propagation de la chaleur dans tout l'appartement. Dans cette configuration, il aura chaud quand il prendra une douche ! 
 
+### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre ?
 ![](Figures/config_3.png)
+
+Cette configuration juste à côté de la fenêtre est la moins bonne car avoir de la chaleur dans le couloir d'entrée n'est pas vraiment utile. 
+
+### Verdicte
+
+La configuration 1 semble la meilleure.
