@@ -23,9 +23,9 @@ Projet de Maillage et Éléments Finis, implémenté par `Clément Apavou` et `A
 |   │   |   ├── config_1.msh    # Configuration 1
 |   │   |   ├── config_2.msh    # Configuration 2
 |   │   |   ├── config_3.msh    # Configuration 3
-│   |   ├── config_1.png        # Appartement d'Arthur : configuration 1 
-│   |   ├── config_2.png        # Appartement d'Arthur : configuration 2
-│   |   ├── config_3.png        # Appartement d'Arthur : configuration 3
+│   |   ├── config_1.py         # Appartement d'Arthur : configuration 1 
+│   |   ├── config_2.py         # Appartement d'Arthur : configuration 2
+│   |   ├── config_3.py         # Appartement d'Arthur : configuration 3
 │   ├── appartement.geo         # Fichier .geo permettant de générer l'appartement de l'énoncé 
 │   ├── appartement.msh         # Fichier .msh : maillage de l'appartement de l'énoncé   
 │   ├── appartement.py          # Fichier .py permettant de générer l'appartement de l'énoncé    
@@ -46,6 +46,8 @@ Les librairies qui vont être installées sont:
 
 ![](Images/2020-2021-flat.svg)
 <br/>
+<img src= Images/equation1.svg display=flex; justification-content = center;>
+
 ![](Images/equation1.svg)
 <br/>
 Une condition de Neumann homogène et deux conditions de Dirichlet hétérogène.
@@ -78,14 +80,14 @@ Pour résoudre le problème il faut lancer le code resolution.py via la commande
 Arthur a très froid en ce moment il ne sait pas où mettre le radiateur dans son appartement. À l'aide de la méthode des élements finis P1 pour résoudre l'équation nous allons determiner où est ce que Arthur mettra son radiateur. 
 Nous avons essayé trois configurations différentes.
 
-## Configuration 1 : à côté de son lit 
+### Configuration 1 : à côté de son lit 
 
 ![](Figures/config_1.png)
 
-## Configuration 2 : dans la salle de bain
+### Configuration 2 : dans la salle de bain
 
 ![](Figures/config_2.png)
 
-## Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre
+### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre
 
 ![](Figures/config_3.png)
