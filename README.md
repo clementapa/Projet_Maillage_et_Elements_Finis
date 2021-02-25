@@ -7,6 +7,8 @@
 
 lancer sh python_librairies_pip.bat
 
+![](equation-2.svg)
+
 ## Structure 
 ```
 ├── Classe            
