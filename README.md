@@ -77,17 +77,17 @@ Pour résoudre le problème il faut lancer le code resolution.py via la commande
 Arthur a très froid en ce moment il ne sait pas où mettre le radiateur dans son appartement. À l'aide de la méthode des élements finis P1, nous allons determiner où est ce que Arthur doit mettre son radiateur. 
 Nous avons essayé trois configurations différentes.
 
-### Configuration 1 : à côté de son lit ?
+### Configuration 1 : à côté de son lit ?
 ![](Figures/config_1.png)
 
 Cette configuration semble pas mal. Le radiateur diffuse bien la chaleur dans les pièces principales de son appartement (même si il ne possède que deux pièces).
 
-### Configuration 2 : dans la salle de bain ?
+### Configuration 2 : dans la salle de bain ?
 ![](Figures/config_2.png)
 
 Les murs de la sale de bain attenuent la propagation de la chaleur dans tout l'appartement. Dans cette configuration, il aura chaud quand il prendra une douche ! 
 
-### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre ?
+### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre ?
 ![](Figures/config_3.png)
 
 Cette configuration juste à côté de la fenêtre est la moins bonne car avoir de la chaleur dans le couloir d'entrée n'est pas vraiment utile. 
