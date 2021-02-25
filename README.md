@@ -44,9 +44,10 @@ Les librairies qui vont être installées sont:
 
 ##  Énoncé
 
+<img src= Images/2020-2021-flat.svg width=50%; height=50%; text-align=center;>
 ![](Images/2020-2021-flat.svg)
 <br/>
-<img src= Images/equation1.svg display=flex; justify-content = center;>
+<img src= Images/equation1.svg text-align= center;>
 
 ![](Images/equation1.svg)
 <br/>
