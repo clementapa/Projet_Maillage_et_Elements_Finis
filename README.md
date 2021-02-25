@@ -28,12 +28,11 @@ lancer sh python_librairies_pip.bat
 ├── projet.pdf                  # subject of the project 
 └── README.md
 ```
-$$
+<img src="https://render.githubusercontent.com/render/math?math=
 \begin{align}
--\int_{\Omega}\Delta uv &= 0 \\\\
-\int_{\Omega}\nabla u \nabla v  -\int_{\Omega}(\partial_{n}u)v &= 0 \\\\
-\int_{\Omega}\nabla u \nabla v &= \int_{\Omega}(\partial_{n}u)v \\\\
-&=  \int_{\Gamma_{radiateur}}(\partial_{n}u)v +  \int_{\Gamma_{fenêtre}}(\partial_{n}u)v +  \int_{\Gamma_{mur}}(\partial_{n}u)v \\\\
+-\int_{\Omega}\Delta uv &= 0 \\
+\int_{\Omega}\nabla u \nabla v  -\int_{\Omega}(\partial_{n}u)v &= 0 \\
+\int_{\Omega}\nabla u \nabla v &= \int_{\Omega}(\partial_{n}u)v \\
+&=  \int_{\Gamma_{radiateur}}(\partial_{n}u)v +  \int_{\Gamma_{fenêtre}}(\partial_{n}u)v +  \int_{\Gamma_{mur}}(\partial_{n}u)v \\
 &=  \underbrace{\int_{\Gamma_{radiateur}}(\partial_{n}u)v +  \int_{\Gamma_{fenêtre}}(\partial_{n}u)v + 0 }_\textrm{Dirichlet homogène}
-\end{align}
-$$
+\end{align}">
