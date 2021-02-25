@@ -28,6 +28,12 @@ lancer sh python_librairies_pip.bat
 ├── projet.pdf                  # subject of the project 
 └── README.md
 ```
+
+![](equation.svg)
+<script type="text/javascript" async
+
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+
 $$
 \begin{align}
 -\int_{\Omega}\Delta uv &= 0 \\\\
