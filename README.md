@@ -44,7 +44,7 @@ Les librairies qui vont être installées sont:
 
 ##  Énoncé
 
-![](Images/2020-2021-flat.svg = 250x250)
+![](Images/2020-2021-flat.svg)
 <br/>
 ![](Images/equation1.svg)
 <br/>
@@ -61,12 +61,14 @@ Pour résoudre le problème il faut lancer le code resolution.py via la commande
 ## Appartement énoncé
 
 ### Les paramètres : 
-* La finesse du maillage h = 0.5                   
-* Longueur appartement L = 10
-* Largeur appartement l = 10
-* Épaisseur des murs d = 0.5 
-* Longueur d’une fenêtre Lf = 2
-* Longueur d’une radiateur Lr = 2
+* La finesse du maillage `h = 0.5`                   
+* Longueur appartement `L = 10`
+* Largeur appartement `l = 10`
+* Épaisseur des murs `d = 0.5`
+* Longueur d’une fenêtre `Lf = 2`
+* Longueur d’une radiateur `Lr = 2`
+* `Tc = 25`
+* `Tf = -10`
 
 ![](Figures/appartement.svg)
 
@@ -75,9 +77,14 @@ Pour résoudre le problème il faut lancer le code resolution.py via la commande
 
 Arthur a très froid en ce moment il ne sait pas où mettre le radiateur dans son appartement. À l'aide de la méthode des élements finis P1 pour résoudre l'équation nous allons determiner où est ce que Arthur mettra son radiateur. <br/>
 Nous avons essayé trois configurations différentes, voici les résultats que nous avons obtenu : <br/>
+
 ### Configuration 1 : à côté de son lit 
+
 ![](Figures/config_1.svg)
+
 ### Configuration 2 : dans la salle de bain
+
 ![](Figures/config_2.svg)
-### Configuration 3 : dans le couloir de l'entrée
+
+### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre
 ![](Figures/config_3.svg)
