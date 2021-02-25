@@ -75,8 +75,8 @@ Pour résoudre le problème il faut lancer le code resolution.py via la commande
 
 ## Détermination de la position du radiateur dans l'appartement d'Arthur
 
-Arthur a très froid en ce moment il ne sait pas où mettre le radiateur dans son appartement. À l'aide de la méthode des élements finis P1 pour résoudre l'équation nous allons determiner où est ce que Arthur mettra son radiateur. <br/>
-Nous avons essayé trois configurations différentes, voici les résultats que nous avons obtenu : <br/>
+Arthur a très froid en ce moment il ne sait pas où mettre le radiateur dans son appartement. À l'aide de la méthode des élements finis P1 pour résoudre l'équation nous allons determiner où est ce que Arthur mettra son radiateur. 
+Nous avons essayé trois configurations différentes.
 
 ### Configuration 1 : à côté de son lit 
 
