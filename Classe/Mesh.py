@@ -1,7 +1,11 @@
+"""
+@credits : Apavou Clément & Zucker Arthur
+"""
+
 from itertools import count
 from math import sqrt
-from .Quadrature import phiRef
 import gmsh
+from .Matrice import phiRef
 
 class Point:
     _ids = count(0)

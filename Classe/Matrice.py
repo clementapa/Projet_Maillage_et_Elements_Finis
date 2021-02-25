@@ -1,3 +1,7 @@
+"""
+@credits : Apavou Clément & Zucker Arthur
+"""
+
 from .triplets import *
 import numpy as np
 from alive_progress import alive_bar
@@ -74,7 +78,16 @@ def gradPhi(i) :
     elif (i == 1):
         return np.array([1,0])
     return np.array([0,1])
-    
+
+def phiRef(element, i:int, param:[float]):
+    """
+    Retourne la fonction de forme @i dans le triangle de référence 
+    """
+    case = {0 : 1 - param[0]-param[1],
+            1 : param[0],
+            2 : param[1]}
+    return case[i]
+
 def B_p(triangle):
     """
     Retourne la matrice de passage de @triangle 
@@ -86,7 +99,6 @@ def B_p(triangle):
     B[1,0] = coeff*(triangle.p[0].x - triangle.p[2].x)
     B[1,1] = coeff*(triangle.p[1].x - triangle.p[0].x)
     return B
-
 
 def Loc2Glob(triangle,indice_loc):
     """
