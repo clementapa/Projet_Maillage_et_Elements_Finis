@@ -11,7 +11,11 @@
 │   ├── config_1.png            # Appartement d'Arthur : configuration 1 
 │   ├── config_2.png            # Appartement d'Arthur : configuration 2
 │   ├── config_3.png            # Appartement d'Arthur : configuration 3
-├── immobilier       
+├── Images                       
+|   ├── 2020-2021-flat.svg      # Image de l'appartement de l'énoncé
+│   ├── equation1.svg           # Équation de l'énoncé
+│   ├── equation2.svg           # Équation de résolution
+├── Immobilier       
 │   ├── appartement_arthur      # Essaie de dfférentes position du radiateur dans l'appartement d'Arthur
 |   |   |── fichier_msh
 |   │   |   ├── config_1.msh    # Configuration 1
@@ -23,7 +27,6 @@
 │   ├── appartement.geo         # Fichier .geo permettant de générer l'appartement de l'énoncé 
 │   ├── appartement.msh         # Fichier .msh : maillage de l'appartement de l'énoncé   
 │   ├── appartement.py          # Fichier .py permettant de générer l'appartement de l'énoncé    
-├── 2020-2021-flat.svg          # Image de l'appartement de l'énoncé
 ├── python_librairies_pip.bat   # fichier permettant d'installer les librairies python necessaires 
 ├── resolution.py               # fichier permettant de résoudre le problème à l'aide des élements finis P1
 └── README.md
@@ -39,3 +42,6 @@ Les librairies qui vont être installées sont:
 
 ## 
 
+![](Images/equation1.svg)
+![](Images/equation2.svg)
+![](Images/2020-2021-flat.svg)
