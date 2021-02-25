@@ -44,7 +44,7 @@ Les librairies qui vont être installées sont:
 
 ##  Énoncé
 
-![](Images/2020-2021-flat.svg)
+![](Images/2020-2021-flat.svg=400x)
 <br/>
 ![](Images/equation1.svg)
 <br/>
@@ -56,7 +56,7 @@ Une condition de Neumann homogène et deux conditions de Dirichlet hétérogène
 Dans le système AU = B, il n'y aura donc pas de matrice de masse à calculer pour A et pas de méthode de quadrature à faire pour le calcul de B.
 
 ## Utilisation du code
-Pour résoudre le problème il faut lancer le code resolution.py via la commande `python resolution.py`, la figure de la solution sera alors créée dans la repertoire `Figures`.
+Pour résoudre le problème il faut lancer le code resolution.py via la commande `python resolution.py`, la figure de la solution sera alors créée dans le repertoire `Figures`.
 
 ## Appartement énoncé
 
@@ -70,7 +70,7 @@ Pour résoudre le problème il faut lancer le code resolution.py via la commande
 * `Tc = 25`
 * `Tf = -10`
 
-![](Figures/appartement.svg)
+![](Figures/appartement.png)
 
 
 ## Détermination de la position du radiateur dans l'appartement d'Arthur
@@ -80,11 +80,11 @@ Nous avons essayé trois configurations différentes.
 
 ### Configuration 1 : à côté de son lit 
 
-![](Figures/config_1.svg)
+![](Figures/config_1.png)
 
 ### Configuration 2 : dans la salle de bain
 
-![](Figures/config_2.svg)
+![](Figures/config_2.png)
 
 ### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre
-![](Figures/config_3.svg)
+![](Figures/config_3.png)
