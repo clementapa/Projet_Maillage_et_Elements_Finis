@@ -10,101 +10,62 @@ from Classe.triplets import *
 from scipy.sparse.linalg import spsolve
 import matplotlib.pyplot as plt
 
-# Paramètres
-Tc = 25 # temperature radiateur
-Tf = -10 # temperature fenêtre
+def resolution(path, save_path):
 
-physical_tag_surface = 1
-physical_tag_radiateurs = 2
-physical_tag_fenetres = 3
+  # Paramètres
+  Tc = 25 # temperature radiateur
+  Tf = -10 # temperature fenêtre
 
-# Initialise gmsh
-gmsh.initialize(sys.argv)
+  physical_tag_surface = 1
+  physical_tag_radiateurs = 2
+  physical_tag_fenetres = 3
 
-# Maillage appartement projet
-print("Maillage de l'appartement du projet en cours ...")
+  gmsh.initialize(sys.argv)
 
-msh = Mesh()
+  print("Résolution en cours ...")
 
-msh.GmshToMesh("Immobilier/appartement.msh")
+  msh = Mesh()
 
-# test_mass(msh,1)
-# test_rigi(msh,1)
+  msh.GmshToMesh(path)
 
-t = Triplets()
-Algo_assemblage(msh, physical_tag_surface, t, Masse = False, Rigi = True)
+  # test_mass(msh,1)
+  # test_rigi(msh,1)
 
-B = np.zeros((msh.Npts))
+  t = Triplets()
 
-# Bords radiateurs
-print("Dirichlet 1 en cours ...")
-Dirichlet(msh, physical_tag_radiateurs, Tc, t, B)
-# Bords fenêtres
-print("Dirichlet 2 en cours ...")
-Dirichlet(msh, physical_tag_fenetres, Tf, t, B)
+  Algo_assemblage(msh, physical_tag_surface, t, Masse = False, Rigi = True)
 
-# Résolution
-print("Résolution en cours ...")
-A = coo_matrix(t.data).tocsr()
-U = spsolve(A, B) # solve avec scipy
+  B = np.zeros((msh.Npts,))
+  
+  # Bords radiateurs
+  print("Dirichlet 1 en cours ...")
+  Dirichlet(msh, physical_tag_radiateurs, Tc, t, B)
+  # Bords fenêtres
+  print("Dirichlet 2 en cours ...")
+  Dirichlet(msh, physical_tag_fenetres, Tf, t, B)
 
-# Visualisation
-print("Visualisation en cours ...")
-x = [pt.x for pt in msh.points]
-y = [pt.y for pt in msh.points]
-connectivity=[]
-for tri in msh.triangles:
-  connectivity.append([ p.id for p in tri.p])
+  # Résolution
+  print("Résolution sur système AU = B en cours ...")
+  A = coo_matrix(t.data).tocsr()
+  U = spsolve(A, B) # solve avec scipy
 
-plt.tricontourf(x, y, connectivity, U, 12)
-plt.colorbar()
-plt.savefig("Figures/appartement.png")
+  # Visualisation
+  print("Visualisation en cours ...")
+  x = [pt.x for pt in msh.points]
+  y = [pt.y for pt in msh.points]
+  connectivity=[]
+  for tri in msh.triangles:
+    connectivity.append([ p.id for p in tri.p])
 
-gmsh.finalize()
+  plt.tricontourf(x, y, connectivity, U, 12)
+  plt.colorbar()
+  plt.savefig(save_path)
 
-# Maillage de l'appartement d'arthur
-# Initialise gmsh
-# gmsh.initialize(sys.argv)
+  gmsh.finalize()
 
-# for i in range(3):
-#   print("Maillage de l'appartement d'arthur en cours ...")
+# Appartement de l'énoncé
+resolution(path = "Immobilier/appartement.msh", save_path = "Figures/appartement.png")
 
-#   msh = Mesh()
-
-#   msh.GmshToMesh("Immobilier/appartement_arthur/fichier_msh/config_"+str(i+1)+".msh")
-
-#   # test_mass(msh,1)
-#   # test_rigi(msh,1)
-
-#   t = Triplets()
-#   Algo_assemblage(msh, physical_tag_surface, t, Masse = False, Rigi = True)
-
-#   B = np.zeros((msh.Npts))
-
-#   # Bords radiateurs
-#   print("Dirichlet 1 en cours ...")
-#   Dirichlet(msh, physical_tag_radiateurs, Tc, t, B)
-#   # Bords fenêtres
-#   print("Dirichlet 2 en cours ...")
-#   Dirichlet(msh, physical_tag_fenetres, Tf, t, B)
-
-#   # Résolution
-#   print("Résolution en cours ...")
-#   A = coo_matrix(t.data).tocsr()
-#   U = spsolve(A, B) # solve avec scipy
-
-#   # Visualisation
-#   print("Visualisation en cours ...")
-#   x = [pt.x for pt in msh.points]
-#   y = [pt.y for pt in msh.points]
-#   connectivity=[]
-#   for tri in msh.triangles:
-#     connectivity.append([ p.id for p in tri.p])
-
-#   plt.tricontourf(x, y, connectivity, U, 12)
-#   plt.colorbar()
-#   plt.savefig("Figures/config_"+str(i+1)+".png")
-
-#   break
-
-# gmsh.finalize()
+# Appartement d'Arthur (3 configurations)
+for i in range(1,3):
+  resolution(path = "Immobilier/appartement_arthur/fichier_msh/config_"+str(i+1)+".msh" , save_path = "Figures/config_"+str(i+1)+".png")
