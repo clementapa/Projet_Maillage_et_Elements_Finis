@@ -28,6 +28,6 @@ lancer sh python_librairies_pip.bat
 <img src="https://render.githubusercontent.com/render/math?math=-\int_{\Omega}\Delta uv = 0 ">
 <img src="https://render.githubusercontent.com/render/math?math=\int_{\Omega}\nabla u \nabla v  -\int_{\Omega}(\partial_{n}u)v = 0 ">
 <img src="https://render.githubusercontent.com/render/math?math=\int_{\Omega}\nabla u \nabla v = \int_{\Omega}(\partial_{n}u)v ">
-<img src="https://render.githubusercontent.com/render/math?math==  \int_{\Gamma_{radiateur}}(\partial_{n}u)v +  \int_{\Gamma_{fenêtre}}(\partial_{n}u)v +  \int_{\Gamma_{mur}}(\partial_{n}u)v ">
-<img src="https://render.githubusercontent.com/render/math?math==  \underbrace{\int_{\Gamma_{radiateur}}(\partial_{n}u)v +  \int_{\Gamma_{fenêtre}}(\partial_{n}u)v + 0 }_\textrm{Dirichlet homogène}">
+<img src="https://render.githubusercontent.com/render/math?math==  \int_{\Gamma_{rad}}(\partial_{n}u)v +  \int_{\Gamma_{fen}}(\partial_{n}u)v +  \int_{\Gamma_{mur}}(\partial_{n}u)v ">
+<img src="https://render.githubusercontent.com/render/math?math==  \underbrace{\int_{\Gamma_{rad}}(\partial_{n}u)v +  \int_{\Gamma_{fen}}(\partial_{n}u)v + 0 }_\textrm{Dirichlet homogène}">
 
