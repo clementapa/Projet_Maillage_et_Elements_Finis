@@ -44,9 +44,9 @@ Les librairies qui vont être installées sont:
 
 ##  Énoncé
 
-<img src= Images/2020-2021-flat.svg width=50%; height=50%; text-align=center;>
+<img src= Images/2020-2021-flat.svg width=50%; height=50%; display=block; margin-left= auto; margin-right=auto; >
 
-<img src= Images/equation1.svg display=flex; justify-content=center; align-items=center;>
+<img src= Images/equation1.svg display=flex; flex_direction = row; justify-content=center; align-items=center;>
 
 ![](Images/equation1.svg)
 <br/>
