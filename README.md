@@ -1,4 +1,4 @@
-# Projet Maillage et Elements_Finis
+# Projet Maillage et Elements Finis
 
 Projet de Maillage et Éléments Finis, implémenté par `Clément Apavou` et `Arthur Zucker`.
 
