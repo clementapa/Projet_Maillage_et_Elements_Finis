@@ -56,7 +56,7 @@ Une condition de Neumann homogène et deux conditions de Dirichlet hétérogène
 Dans le système AU = B, il n'y aura donc pas de matrice de masse à calculer pour A et pas de méthode de quadrature à faire pour le calcul de B.
 
 ## Utilisation du code
-Pour résoudre le problème, il faut lancer le code resolution.py via la commande `python resolution.py <name>`, la figure de la solution s'affichera et sera également créée dans le repertoire `Figures` . 
+Pour résoudre le problème, il faut lancer le code resolution.py via la commande `python resolution.py <name>`, la figure de la solution s'affichera et sera également créée dans le repertoire `Figures` . <br/> 
 `name` peut prendre plusieurs valeurs : <br/>
 * appartement
 * config_1
