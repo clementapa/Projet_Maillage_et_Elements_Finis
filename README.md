@@ -87,7 +87,7 @@ Nous avons essayé trois configurations différentes.
 
 ### Configuration 1 : à côté de son lit ?
 
-python resolution.py config_1
+`python resolution.py config_1`
 
 ![](Figures/config_1.png)
 
@@ -95,7 +95,7 @@ Cette configuration semble pas mal. Le radiateur diffuse bien la chaleur dans le
 
 ### Configuration 2 : dans la salle de bain ?
 
-python resolution.py config_2
+`python resolution.py config_2`
 
 ![](Figures/config_2.png)
 
@@ -103,7 +103,7 @@ Les murs de la sale de bain attenuent la propagation de la chaleur dans tout l'a
 
 ### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre ?
 
-python resolution.py config_3
+`python resolution.py config_3`
 
 ![](Figures/config_3.png)
 
