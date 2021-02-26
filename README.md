@@ -86,16 +86,25 @@ Arthur a très froid en ce moment il ne sait pas où mettre le radiateur dans so
 Nous avons essayé trois configurations différentes.
 
 ### Configuration 1 : à côté de son lit ?
+
+python resolution.py config_1
+
 ![](Figures/config_1.png)
 
 Cette configuration semble pas mal. Le radiateur diffuse bien la chaleur dans les pièces principales de son appartement (même si il ne possède que deux pièces).
 
 ### Configuration 2 : dans la salle de bain ?
+
+python resolution.py config_2
+
 ![](Figures/config_2.png)
 
 Les murs de la sale de bain attenuent la propagation de la chaleur dans tout l'appartement. Dans cette configuration, il aura chaud quand il prendra une douche ! 
 
 ### Configuration 3 : dans le couloir de l'entrée à côté de la fenêtre ?
+
+python resolution.py config_3
+
 ![](Figures/config_3.png)
 
 Cette configuration juste à côté de la fenêtre est la moins bonne car avoir de la chaleur dans le couloir d'entrée n'est pas vraiment utile. 
