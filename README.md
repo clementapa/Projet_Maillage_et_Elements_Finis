@@ -58,10 +58,10 @@ Dans le système AU = B, il n'y aura donc pas de matrice de masse à calculer po
 ## Utilisation du code
 Pour résoudre le problème, il faut lancer le code resolution.py via la commande `python resolution.py <name>`, la figure de la solution s'affichera et sera également créée dans le repertoire `Figures` . <br/> 
 `name` peut prendre plusieurs valeurs : <br/>
-* appartement
-* config_1
-* config_2
-* config_3
+* appartement (appartement de l'énoncé)
+* config_1 (appartement d'Arthur configuration 1)
+* config_2 (appartement d'Arthur configuration 2)
+* config_3 (appartement d'Arthur configuration 3)
 
 ## Appartement énoncé
 
@@ -74,6 +74,8 @@ Pour résoudre le problème, il faut lancer le code resolution.py via la command
 * Longueur d’une radiateur `Lr = 2`
 * `Tc = 25`
 * `Tf = -10`
+
+#### Résultat
 
 ![](Figures/appartement.png)
 
