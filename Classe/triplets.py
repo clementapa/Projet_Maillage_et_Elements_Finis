@@ -1,3 +1,7 @@
+"""
+@credits : Apavou Clément & Zucker Arthur
+"""
+
 from scipy.sparse import coo_matrix
 
 class Triplets:

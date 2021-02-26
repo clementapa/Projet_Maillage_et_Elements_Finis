@@ -134,21 +134,19 @@ def Dirichlet(msh, physical_tag, g, T, B):
     Applique la condition de Dirichlet à la matrice B et à la matrice T qui reprèsente A
     dans le système AU = B
     """
-    Indexes_to_nullify = []
+    Indexes_points = []
     with alive_bar(len(msh.segments)) as bar:
         for s in msh.segments:
             if(s.tag == physical_tag):
                 for p in s.p:
-                    Indexes_to_nullify.append(p.id)
+                    Indexes_points.append(p.id)
             bar()
     
-    with alive_bar(len(Indexes_to_nullify)) as bar:
-        for i in Indexes_to_nullify:
+    with alive_bar(len(Indexes_points)) as bar:
+        for i in Indexes_points:
             for indx in range(len(T.data[0])) :
                 if(T.data[1][0][indx] == i):
                     T.data[0][indx] = 0
-                elif(T.data[1][1][indx] == i):
-                    T.data[0][indx] *= g 
             T.append(i,i,1)
             B[i] = g
             bar()

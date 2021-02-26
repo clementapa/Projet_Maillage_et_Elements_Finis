@@ -41,6 +41,7 @@ Les librairies qui vont être installées sont:
 * numpy
 * scipy
 * matplotlib
+* docopt
 
 ##  Énoncé
 
@@ -55,7 +56,12 @@ Une condition de Neumann homogène et deux conditions de Dirichlet hétérogène
 Dans le système AU = B, il n'y aura donc pas de matrice de masse à calculer pour A et pas de méthode de quadrature à faire pour le calcul de B.
 
 ## Utilisation du code
-Pour résoudre le problème il faut lancer le code resolution.py via la commande `python resolution.py`, la figure de la solution sera alors créée dans le repertoire `Figures`.
+Pour résoudre le problème, il faut lancer le code resolution.py via la commande `python resolution.py <name>`, la figure de la solution s'affichera et sera également créée dans le repertoire `Figures` . 
+`name` peut prendre plusieurs valeurs : <br/>
+* appartement
+* config_1
+* config_2
+* config_3
 
 ## Appartement énoncé
 
@@ -92,6 +98,6 @@ Les murs de la sale de bain attenuent la propagation de la chaleur dans tout l'a
 
 Cette configuration juste à côté de la fenêtre est la moins bonne car avoir de la chaleur dans le couloir d'entrée n'est pas vraiment utile. 
 
-### Verdicte
+### Verdict
 
 La configuration 1 semble la meilleure.
