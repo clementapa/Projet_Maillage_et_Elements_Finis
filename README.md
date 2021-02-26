@@ -58,10 +58,10 @@ Dans le système AU = B, il n'y aura donc pas de matrice de masse à calculer po
 ## Utilisation du code
 Pour résoudre le problème, il faut lancer le code resolution.py via la commande `python resolution.py <name>`, la figure de la solution s'affichera et sera également créée dans le repertoire `Figures` . <br/> 
 `name` peut prendre plusieurs valeurs : <br/>
-* appartement (appartement de l'énoncé)
-* config_1 (appartement d'Arthur configuration 1)
-* config_2 (appartement d'Arthur configuration 2)
-* config_3 (appartement d'Arthur configuration 3)
+* appartement (appartement de l'énoncé) : `python resolution.py appartement`
+* config_1 (appartement d'Arthur configuration 1) : `python resolution.py config_1`
+* config_2 (appartement d'Arthur configuration 2) : `python resolution.py config_2`
+* config_3 (appartement d'Arthur configuration 3) : `python resolution.py config_3`
 
 ## Appartement énoncé
 
