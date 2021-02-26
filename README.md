@@ -75,7 +75,7 @@ Pour résoudre le problème, il faut lancer le code resolution.py via la command
 * `Tc = 25`
 * `Tf = -10`
 
-#### Résultat
+#### Résultat pour la commande python resolution.py appartement
 
 ![](Figures/appartement.png)
 
